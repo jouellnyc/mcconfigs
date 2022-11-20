@@ -1,3 +1,4 @@
+#get the latest from https://github.com/rdagger/micropython-ili9341
 """ILI9341 LCD/Touch module."""
 from time import sleep
 from math import cos, sin, pi, radians
