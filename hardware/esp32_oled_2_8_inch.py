@@ -3,7 +3,8 @@ from machine import Pin, SPI
 from .ili9341 import Display, color565
 from .xglcd_font import XglcdFont
 
-from hardware.config import case, wires
+from .config import case, wires
+from mlbapp.version import version
 
 spi = SPI(2, baudrate=51200000, sck=Pin(18), mosi=Pin(23))
 
@@ -51,14 +52,22 @@ elif case == "upright":
         display.fill_rectangle(0,0, 239,319, drk_grn)
     print("HW:",case, wires)
 
-red=color565(255, 0, 0)
-black=color565(0, 0, 0)
 white=color565(255,255,255)
 drk_grn=color565(50,100,30)
+sm_font  = XglcdFont('../fonts/arial_23_24.c', 23, 24)
+
+def print_setup(boot_stage):
+    clear_fill()    
+    draw_outline_box()
+    display.draw_text(5, 8,  f"{boot_stage}"      , sm_font, white, drk_grn)
+    display.draw_text(5, 65, 'MLB Kiosk'          , sm_font, white, drk_grn)
+    display.draw_text(5, 105, f"Version {version}" , sm_font, white, drk_grn)
+
+red=color565(255, 0, 0)
+black=color565(0, 0, 0)
 
 score_font  = XglcdFont('../fonts/sb_21_27.c', 21, 27)
 date_font   = XglcdFont('../fonts/arial_32_31.c', 32, 31)
-sm_font  = XglcdFont('../fonts/arial_23_24.c', 23, 24)
 
 if __name__ == "__main__":
-    display.draw_text(0, 66, 'Espresso Dolce', score_font, drk_grn)
+    display.draw_text(0, 66, 'Espresso Dolce', score_font, drk_grn)   

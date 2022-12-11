@@ -18,7 +18,6 @@ while True:
 		time.sleep(2)
 	except Exception as e:
 		print(e)
-		print_err(e)
         time.sleep(1)
 	if sta_if.isconnected():
 		print('Connected to Wifi') 
