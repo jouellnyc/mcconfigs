@@ -1,10 +1,14 @@
 """
 Credit: https://forum.micropython.org/viewtopic.php?t=12294&p=66757
 """
+from hardware.err_to_screen import print_err
 
 import network
 import time
 from .wifi_config import SSID, PSWD
+
+class WifiErr(Exception):
+    pass
 
 sta_if = network.WLAN(network.STA_IF)
 sta_if.active(True)
@@ -14,7 +18,8 @@ while True:
 		time.sleep(2)
 	except Exception as e:
 		print(e)
-	time.sleep(1)
+		print_err(e)
+        time.sleep(1)
 	if sta_if.isconnected():
 		print('Connected to Wifi') 
 		break

@@ -1,2 +1,2 @@
-SSID='SSID'
-PSWD='psw'
+SSID='XXXX'
+PSWD='YYYY'
