@@ -1,4 +1,4 @@
-def printout(string,oled):
+def printout(string, oled):
     
     md={}
     
@@ -21,5 +21,6 @@ def printout(string,oled):
             end= x * scr_len
             x='row' + str(x)
             oled.text(string[start:end],horiz,depth)
+            oled.show()
         depth+=9
 
