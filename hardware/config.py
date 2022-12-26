@@ -1,12 +1,14 @@
-#Which type of case --  'upright' or 'sideways'?
+""" Which type of case --  'upright' or 'sideways'? """
 case = "sideways"
-#case = "upright"
 
-#Are he wires  to the 'left', 'right', 'top' or 'bottom'?
+""" Are the wires  to the 'left', 'right', 'top' or 'bottom'? """
 wires = "left"
-#wires = "bottom"
 
+""" What type of Micro Controller? """
 mc = "esp32-devkit-c"
 
-#Is the Screen 'oled' or 'ili9341'?
-screen = 'ili9341'
+""" Is the Screen 'oled' or 'ili9341' or 'lilygo_ili9341_2_4'? """
+screen = 'lilygo_ili9341_2_4'
+
+""" What are the type of ili9341 supported? """
+ili_screen_types = ['ili9341', 'lilygo_ili9341_2_4']
